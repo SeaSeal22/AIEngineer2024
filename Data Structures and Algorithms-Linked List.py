@@ -24,8 +24,20 @@ class LinkedList:
             itr = itr.next
         print(llstr)
 
+    def insert_at_end(self,data):
+        if self.head is None:
+            self.head = Node(data,None) #如果是空的就新建一个节点
+            return
+
+        itr = self.head
+        while itr.next: #一直走到最后一个节点的位置
+            itr = itr.next
+        itr.next = Node(data,None)
+
+
 if __name__ == '__main__':
     ll = LinkedList()
     ll.insert_at_beginning(10)
     ll.insert_at_beginning(89)
+    ll.insert_at_end(44)
     ll.print()
